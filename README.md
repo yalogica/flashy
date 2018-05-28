@@ -1,9 +1,11 @@
 # Flashy - jQuery Lightbox & Popup Plugin
 
 Yet another responsive jQuery lightbox and popup plugin, support images, inline contents, iframes, vimeo and youtube videos. 
+
 <p align="center">
 [![Video](http://img.youtube.com/vi/njKeoZobbYo/0.jpg)](https://www.youtube.com/watch?v=njKeoZobbYo)
 </p>
+
 ## Quick start
 
 ### Static HTML
