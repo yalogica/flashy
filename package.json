@@ -1,0 +1,30 @@
+{
+  "name": "avirtum",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "easy custom js and css",
+  "author": "avirtum",
+  "homepage": "http://avirtum.com",
+  "main": "gulpfile.js",
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-cached": "^1.1.1",
+    "gulp-connect-php": "^1.0.1",
+    "gulp-debug": "^3.2.0",
+    "gulp-folders": "^1.1.0",
+    "gulp-if": "^2.0.2",
+    "gulp-less": "^3.3.2",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-rimraf": "^0.2.1",
+    "gulp-sequence": "^1.0.0",
+    "gulp-sourcemap": "^1.0.1",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "gulp-watch": "^4.3.11",
+    "yargs": "^10.0.3"
+  }
+}

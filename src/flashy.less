@@ -1,0 +1,300 @@
+/*!
+  Flashy - jQuery Lightbox & Popup Plugin
+  @name flashy.css
+  @description jQuery plugin for creating responsive lightboxes & popups with focus on performance and effects
+  @author Max Lavretiev
+  @site http://www.avirtum.com
+  @copyright (c) Max Lavretiev
+*/
+/* 
+ * Please do NOT edit this part, you can do that only if you have both knowledge and field experience
+ */
+body.flashy-active {
+	overflow:hidden;
+	
+	.flashy-overlay {
+		opacity:1;
+		pointer-events:auto;
+	}
+}
+.flashy-overlay {
+	transition:all .3s;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+	position:fixed;
+	left:0;
+	top:0;
+	right:0;
+	bottom:0;
+	transform:translateZ(1000px);
+	transform-style:preserve-3d;
+	background-color:fade(#000,100%);
+	opacity:0;
+	pointer-events:none;
+	z-index:1001;
+	overflow:hidden;
+}
+.flashy-container {
+	position:absolute;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	outline:none;
+	overflow-x:hidden;
+	overflow-y:scroll;
+	overflow-scrolling:touch;
+	z-index:1002;
+	
+	// by having a outer div with flex-direction:row,
+	// the min-height bug in IE doesn't stick around.
+	.flashy-content-outer {
+		position:absolute;
+		display:flex;
+		flex-direction:row;
+	}
+	.flashy-content-inner {
+		display:flex;
+		flex-direction:column;
+		justify-content:center;
+		align-items:center;
+		min-width:100vw;
+		min-height:100vh;
+		padding:30px;
+		box-sizing:border-box;
+	}
+	.flashy-content {
+		//transition:transform 300ms ease-out;
+		display:inline-block;
+		padding:15px;
+		background:#fff;
+		opacity:0;
+		pointer-events:none;
+		
+		& * {
+			backface-visibility:hidden;
+			box-sizing:border-box;
+		}
+		
+		&.flashy-show {
+			opacity:1;
+			pointer-events:auto;
+		}
+		
+		&.flashy-error {
+			color:#a94442;
+			background-color:#f2dede;
+			border:1px solid #a94442;
+			box-shadow:0 0 40px fade(#a94442, 90%);
+			font-family:Arial, Helvetica, sans-serif;
+			font-size:14px;
+			width:auto !important;
+		}
+		
+		&.flashy-image {
+			img {
+				max-width:100%;
+				//max-height:70vh;
+			}
+		}
+		
+		&.flashy-inline,
+		&.flashy-ajax {
+			width:100%;
+		}
+		
+		&.flashy-iframe {
+			iframe {
+				width:100%;
+				height:70vh;
+				border:none;
+			}
+		}
+		
+		&.flashy-video {
+			width:100%;
+			height:260px;
+			
+			iframe {
+				width:100%;
+				height:100%;
+				border:none;
+				background-color:#000;
+			}
+		}
+	}
+}
+@media (min-width: 768px) {
+	.flashy-container {
+		.flashy-content {
+			&.flashy-iframe {
+				width:90%;
+				height:70vh;
+			}
+			&.flashy-video {
+				width:640px;
+				height:360px;
+			}
+		}
+	}
+}
+@media (min-width: 992px) {
+	.flashy-container {
+		.flashy-content {
+			&.flashy-inline,
+			&.flashy-ajax {
+				max-width:1200px;
+				width:80%;
+			}
+			&.flashy-iframe {
+				width:90%;
+				height:70vh;
+			}
+			&.flashy-video {
+				width:960px;
+				height:540px;
+			}
+		}
+	}
+}
+.flashy-overlay {
+	&.flashy-fullscreen {
+		.flashy-numeration,
+		.flashy-close,
+		.flashy-prev,
+		.flashy-next,
+		.flashy-title {
+			opacity:0 !important;
+			pointer-events:none !important;
+		}
+	}
+	
+	.flashy-numeration {
+		transition:all 0.3s;
+		position:absolute;
+		top:0;
+		left:0;
+		padding:0 10px;
+		line-height:38px;
+		color:#fff;
+		background-color:fade(#000, 80%);
+		font-family:Arial, Helvetica, sans-serif;
+		font-size:13px;
+		letter-spacing:.6px;
+		text-align:center;
+		opacity:0;
+		pointer-events:none;
+		z-index:1003;
+		
+		&.flashy-show {
+			opacity:1;
+			pointer-events:auto;
+		}
+	}
+	
+	.flashy-title {
+		transition:all 0.3s;
+		position:absolute;
+		left:0;
+		bottom:0;
+		right:0;
+		padding:0 10px;
+		line-height:38px;
+		color:#fff;
+		background-color:fade(#000, 80%);
+		font-family:Arial, Helvetica, sans-serif;
+		font-size:13px;
+		letter-spacing:.6px;
+		text-align:center;
+		opacity:0;
+		pointer-events:none;
+		z-index:1003;
+		
+		&.flashy-show {
+			pointer-events:auto;
+			opacity:1;
+		}
+	}
+	
+	.flashy-close {
+		transition:all 0.3s;
+		position:absolute;
+		right:0px;
+		top:0px;
+		width:24px;
+		height:24px;
+		padding:7px;
+		background-color:fade(#000, 80%);
+		background-repeat:no-repeat;
+		background-position:center center;
+		background-image:url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjI0cHgiIHZpZXdCb3g9Ii01IC01IDI0IDI0IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IC01IC01IDI0IDI0IiB4bWw6c3BhY2U9InByZXNlcnZlIj48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNMTMuNywwLjNjLTAuNC0wLjQtMS0wLjQtMS40LDBMNyw1LjZMMS43LDAuM2MtMC40LTAuNC0xLTAuNC0xLjQsMGMtMC40LDAuNC0wLjQsMSwwLDEuNEw1LjYsN2wtNS4zLDUuM2MtMC40LDAuNC0wLjQsMSwwLDEuNEMwLjUsMTMuOSwwLjcsMTQsMSwxNHMwLjUtMC4xLDAuNy0wLjNMNyw4LjRsNS4zLDUuM2MwLjIsMC4yLDAuNSwwLjMsMC43LDAuM3MwLjUtMC4xLDAuNy0wLjNjMC4zOTktMC40LDAuMzk5LTEsMC0xLjRMOC40LDdsNS4zLTUuM0MxNC4xLDEuMywxNC4xLDAuNywxMy43LDAuM3oiLz48L3N2Zz4=');
+		cursor:pointer;
+		opacity:0.8;
+		z-index:1003;
+		
+		&:hover {
+			opacity:1;
+		}
+	}
+	
+	.flashy-prev,
+	.flashy-next {
+		transition:all 0.3s;
+		position:absolute;
+		top:50vh;
+		width:28px;
+		height:28px;
+		margin-top:-34px;
+		padding:20px 5px;
+		background-color:fade(#000, 80%);
+		background-repeat:no-repeat;
+		background-position:center center;
+		cursor:pointer;
+		opacity:0;
+		pointer-events:none;
+		z-index:1003;
+		
+		&.flashy-show {
+			pointer-events:auto;
+			opacity:0.8;
+		
+			&:hover {
+				opacity:1;
+			}
+		}
+	}
+	
+	.flashy-prev {
+		left:0px;
+		background-image:url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIyOHB4IiBoZWlnaHQ9IjI4cHgiIHZpZXdCb3g9IjAgMCAyOCAyOCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMjggMjgiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik0zLjI5MywxNC43MDdMMTEsMjIuNDE0TDEyLjQxNCwyMWwtNi02SDI0YzAuNTUzLDAsMS0wLjQ0OCwxLTFzLTAuNDQ3LTEtMS0xSDYuNDE0bDYtNkwxMSw1LjU4NmwtNy43MDcsNy43MDdDMi45MDIsMTMuNjg0LDIuOTAyLDE0LjMxNiwzLjI5MywxNC43MDd6Ii8+PC9zdmc+');
+	}
+	
+	.flashy-next {
+		right:0px;
+		background-image:url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIyOHB4IiBoZWlnaHQ9IjI4cHgiIHZpZXdCb3g9IjAgMCAyOCAyOCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMjggMjgiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik0yNC43MDcsMTMuMjkzTDE3LDUuNTg2TDE1LjU4Niw3bDYsNkg0Yy0wLjU1MywwLTEsMC40NDgtMSwxczAuNDQ3LDEsMSwxaDE3LjU4NmwtNiw2TDE3LDIyLjQxNGw3LjcwNy03LjcwN0MyNS4wOTgsMTQuMzE2LDI1LjA5OCwxMy42ODQsMjQuNzA3LDEzLjI5M3oiLz48L3N2Zz4=');
+	}
+}
+.flashy-preloader {
+	transition:all .5s;
+	animation:flashy-spin 1200ms infinite linear;
+	width:80px;
+	height:80px;
+	background-color:fade(#000, 25%);
+	background-image:url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTDkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMTM4cHgiIGhlaWdodD0iMTM4cHgiIHZpZXdCb3g9IjgxIDgxIDEzOCAxMzgiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgODEgODEgMTM4IDEzOCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTIxOSwxNTBjMC0zOC4xLTMwLjktNjktNjktNjljLTM4LjEwMSwwLTY5LDMwLjktNjksNjkgTTkyLjcsMTUwYzAtMzEuNSwyNS41LTU3LjMsNTcuMy01Ny4zczU3LjMsMjUuOCw1Ny4zLDU3LjMiLz48L3N2Zz4=');
+	background-size:cover;
+	border-radius:100%;
+	box-shadow:0 0 40px fade(#000, 50%);
+	opacity:0;
+	pointer-events:none;
+	z-index:2002;
+	
+	&.flashy-show {
+		opacity:1;
+	}
+}
+@keyframes flashy-spin {
+	from { transform: rotate(0deg); }
+	to   { transform: rotate(360deg); }
+}
