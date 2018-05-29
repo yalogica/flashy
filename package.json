@@ -1,9 +1,8 @@
 {
-  "name": "avirtum",
+  "name": "flashy",
   "version": "1.0.0",
   "license": "MIT",
-  "description": "easy custom js and css",
-  "author": "avirtum",
+  "author": "Max Lavrentiev",
   "homepage": "http://avirtum.com",
   "main": "gulpfile.js",
   "devDependencies": {
