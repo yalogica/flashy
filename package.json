@@ -2,8 +2,6 @@
   "name": "flashy",
   "version": "1.0.0",
   "license": "MIT",
-  "author": "Max Lavrentiev",
-  "homepage": "http://avirtum.com",
   "main": "gulpfile.js",
   "devDependencies": {
     "browser-sync": "^2.18.13",
