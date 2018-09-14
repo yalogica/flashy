@@ -2,9 +2,8 @@
   "name": "flashy",
   "homepage": "https://github.com/coderius/flashy",
   "authors": [
-    
   ],
-  "description": "A javascript image cropper",
+  "description": "jQuery Lightbox & Popup Plugin",
   "main": [
     "flashy.css",
     "jquery.flashy.js"
