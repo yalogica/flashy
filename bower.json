@@ -1,0 +1,31 @@
+{
+  "name": "flashy-box",
+  "homepage": "https://github.com/coderius/flashy-box",
+  "authors": [
+  ],
+  "description": "jQuery Lightbox & Popup Plugin",
+  "main": [
+    "flashy.css",
+    "jquery.flashy.js"
+  ],
+  "moduleType": [],
+  "keywords": [
+    "image",
+    "flashy",
+    "lightbox"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "demo",
+    "test",
+    "tests",
+    "index.html"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "jquery": "~2.1.4"
+  }
+}
